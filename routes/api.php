@@ -19,8 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api'] , function ()
 {
+    //get use email and password compare with database data and return "success" or "fail"
     Route::get('index', 'UserLoginApiController@index');
     Route::post('login', 'UserLoginApiController@login');
 
+    //get all Courses information
     Route::get('allCourses', 'AllCoursesApiController@getAllCourses');
+
 });
