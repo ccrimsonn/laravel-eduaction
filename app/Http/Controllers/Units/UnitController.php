@@ -43,6 +43,7 @@ class UnitController extends Controller
             'code' => 'required|unique:units',
             'duration' => 'required|integer|min:0',
             'fee' => 'required|min:0',
+            'description' => 'required',
         ]);
         if(Course::where('code', $request->get('course_code'))->count() != 0)
         {
@@ -57,6 +58,7 @@ class UnitController extends Controller
         $unit->code = $request->get('code');
         $unit->duration = $request->get('duration');
         $unit->cost = $request->get('fee');
+        $unit->description = $request->get('description');
 
         if($unit->save()) {
             return redirect('/');
@@ -103,6 +105,7 @@ class UnitController extends Controller
         $unit->code = $request->get('code');
         $unit->duration = $request->get('duration');
         $unit->cost = $request->get('fee');
+        $unit->description = $request->get('description');
 
         if($unit->save()) {
             return redirect('/');

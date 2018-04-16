@@ -43,6 +43,7 @@ class LessonController extends Controller
             'code' => 'required|unique:lessons',
             'duration' => 'required|integer|min:0',
             'delivery_mode' => 'required',
+            'description' => 'required',
         ]);
         if(Unit::where('code', $request->get('unit_code'))->count() != 0)
         {
@@ -59,6 +60,7 @@ class LessonController extends Controller
         $lesson->delivery_mode = $request->get('delivery_mode');
         $lesson->start_date = $request->get('start_date');
         $lesson->end_date = $request->get('end_date');
+        $lesson->description = $request->get('description');
 
         if($lesson->save()) {
             return redirect('/');
@@ -107,6 +109,7 @@ class LessonController extends Controller
         $lesson->delivery_mode = $request->get('delivery_mode');
         $lesson->start_date = $request->get('start_date');
         $lesson->end_date = $request->get('end_date');
+        $lesson->description = $request->get('description');
 
         if($lesson->save()) {
             return redirect('/');

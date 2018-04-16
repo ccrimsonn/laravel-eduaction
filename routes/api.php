@@ -26,4 +26,5 @@ Route::group(['namespace' => 'Api'] , function ()
     //get all Courses information
     Route::get('allCourses', 'AllCoursesApiController@getAllCourses');
 
+
 });

@@ -48,6 +48,13 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
+                                    <div class="col-md-6">
+                                        <lable for="description" class="col-md-10 col-form-label text-md-left">{{$data->description}}</lable>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <a href="{{ url('Units/'.$data->id.'/edit') }}" class="btn btn-success">Edit</a>
