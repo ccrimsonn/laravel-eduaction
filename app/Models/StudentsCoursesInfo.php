@@ -2,9 +2,10 @@
 
 namespace Empire\Models;
 
+use Empire\Http\Resources\CourseInfo;
 use Illuminate\Database\Eloquent\Model;
 
 class StudentsCoursesInfo extends Model
 {
-    protected $table = 'students_courses_info';
+    protected $table = 'students_course_info';
 }
