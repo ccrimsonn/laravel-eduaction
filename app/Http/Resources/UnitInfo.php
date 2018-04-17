@@ -3,8 +3,9 @@
 namespace Empire\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+;
 
-class CourseInfo extends ResourceCollection
+class UnitInfo extends ResourceCollection
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +16,7 @@ class CourseInfo extends ResourceCollection
     public function toArray($request)
     {
         $values = [
-            'courses' => $this->collection,
+            'units' => $this->collection,
         ];
         return $values;
     }

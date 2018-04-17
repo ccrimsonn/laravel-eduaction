@@ -5,7 +5,7 @@ namespace Empire\Http\Resources;
 use Empire\Models\StudentsCoursesInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class StudentCourse extends JsonResource
+class StudentLesson extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,20 +20,20 @@ class StudentCourse extends JsonResource
             'first_name' => $this->first_name,
             'surname' => $this->surname,
             'campus' => $this->campus,
-            'course-info' => new CourseInfo(StudentsCoursesInfo::where('email', $this->email)->get()->makeHidden([
-                'lesson_name',
-                'lesson_code',
+            'unit-info' => new LessonInfo(StudentsCoursesInfo::where('email', $this->email)->get()->makeHidden([
                 'unit_name',
                 'unit_code',
+                'course_name',
+                'course_code',
+                'cricos_code',
                 'surname',
                 'first_name',
                 'dob',
                 'email',
                 'campus',
-                'lesson_description',
+                'course_description',
                 'unit_description',
             ])),
         ];
-        return $values;
-    }
+        return $values;    }
 }
