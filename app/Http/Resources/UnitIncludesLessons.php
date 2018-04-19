@@ -18,17 +18,47 @@ class UnitIncludesLessons extends ResourceCollection
     {
 
         $values = $this->collection;
+        $data = $values->unique('unit_code');
+//        $data = $values->map(function ($item){
+//            $result = [
+//                'unitCode' => $item->unit_code,
+//                'classInfo' => [
+//                    'classCode' => $item->lesson_code,
+//                    'className' => $item->lesson_name,
+//                    'classDescription' => $item->lesson_description,
+//                ],
+//            ];
+//            return $item->unit_code;
+//        });
 
-        $grouped =$values->groupBy(function($item){
+//        $grouped = $data->mapToGroups(function ($item, $key) {
+//            return [$item['unitCode'] => $item['classInfo']];
+//        });
 
-            $data = [
-                'unitCode' => $item['unit_code'],
-            ];
-            return '' .count($data);
-        });
+        return $data;
 
-        return $grouped;
-        //return gettype($grouped);
+//        $grouped = $values->mapToGroups(function ($item, $key) {
+//           $result = [
+//               'unitCode' => [
+//                    $item['unit_code'] => $item['unit_name'],
+//                   ],
+//           ];
+//           return $result;
+//        });
+//
+//
+//        return $grouped;
+
+//        $grouped =$values->groupBy(function($item){
+//
+//            $data = [
+//                'unitCode' => $item['unit_code'],
+//            ];
+//            return $data;
+//        });
+//
+//        return $grouped;
+//        //return gettype($grouped);
     }
 
 }
