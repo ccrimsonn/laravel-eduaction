@@ -3,6 +3,7 @@
 namespace Empire\Http\Resources;
 
 use Empire\Models\StudentsCoursesInfo;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class StudentLesson extends JsonResource
@@ -20,9 +21,8 @@ class StudentLesson extends JsonResource
             'firstName' => $this->first_name,
             'surname' => $this->surname,
             'campus' => $this->campus,
-            'unitInfo' => new LessonInfo(StudentsCoursesInfo::where('email', $this->email)->get()->makeHidden([
-                'unit_name',
-                'unit_code',
+            'courseCode' => $this->course_code,
+            'unitData' => new UnitIncludesLessons(StudentsCoursesInfo::where('email', $this->email)->where('course_code', $this->course_code)->get()->makeHidden([
                 'course_name',
                 'course_code',
                 'cricos_code',
@@ -35,5 +35,9 @@ class StudentLesson extends JsonResource
                 'unit_description',
             ])),
         ];
-        return $values;    }
+
+
+
+        return $values;
+    }
 }

@@ -20,7 +20,7 @@ class StudentUnit extends JsonResource
             'firstName' => $this->first_name,
             'surname' => $this->surname,
             'campus' => $this->campus,
-            'unitInfo' => new UnitInfo(StudentsCoursesInfo::where('email', $this->email)->get()->makeHidden([
+            $this->course_code => new UnitInfo(StudentsCoursesInfo::where('email', $this->email)->get()->makeHidden([
                 'lesson_name',
                 'lesson_code',
                 'course_name',

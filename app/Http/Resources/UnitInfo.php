@@ -3,7 +3,7 @@
 namespace Empire\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-;
+
 
 class UnitInfo extends ResourceCollection
 {

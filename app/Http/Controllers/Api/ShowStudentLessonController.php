@@ -13,11 +13,12 @@ class ShowStudentLessonController extends Controller
     public function showStudentLesson(Request $request)
     {
         $studentEmail = $request['email'];
+        $courseCode = $request['courseCode'];
 
         if(Student::where('email', $studentEmail)->first() != null)
         {
             StudentLesson::withoutWrapping();
-            $data = new StudentLesson(StudentsCoursesInfo::where('email', $studentEmail)->first());
+            $data = new StudentLesson(StudentsCoursesInfo::where('email', $studentEmail)->where('course_code', $courseCode)->first());
             return response()->json($data,200,[],JSON_PRETTY_PRINT);
 
         }else{
