@@ -26,17 +26,17 @@ Route::group(['namespace' => 'Api'] , function ()
     //get all Courses information
     Route::get('allCourses', 'AllCoursesApiController@getAllCourses');
 
-    Route::post('studentCourse', 'ShowStudentCourseController@showStudentCourse');
-    Route::post('studentUnit', 'ShowStudentUnitController@showStudentUnit');
-    Route::post('studentLesson', 'ShowStudentLessonController@showStudentLesson');
+    Route::get('studentCourse', 'ShowStudentCourseController@showStudentCourse');
+    Route::get('studentUnit', 'ShowStudentUnitController@showStudentUnit');
+    Route::get('studentLesson', 'ShowStudentLessonController@showStudentLesson');
 
     //API List
     Route::get('APIList', function(){
         $APIs = [
             "all-courses-info (get)" => "empirecollege.net/Education/public/api/allCourses",
-            "student-course-info (post email=xxx@xxx)" => "empirecollege.net/Education/public/api/studentCourse",
-            "student-unit-info (post email=xxx@xxx)" => "empirecollege.net/Education/public/api/studentUnit",
-            "student-class-info (post email=xxx@xxx)" => "empirecollege.net/Education/public/api/studentLesson",
+            "student-course-info (get email=xxx@xxx)" => "empirecollege.net/Education/public/api/studentCourse",
+            "student-unit-info (get email=xxx@xxx)" => "empirecollege.net/Education/public/api/studentUnit",
+            "student-class-info (get email=xxx@xxx)" => "empirecollege.net/Education/public/api/studentLesson",
         ];
         return response()->json($APIs,200,[],JSON_PRETTY_PRINT);
     });
