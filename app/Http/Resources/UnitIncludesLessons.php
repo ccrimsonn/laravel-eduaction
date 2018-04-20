@@ -16,49 +16,28 @@ class UnitIncludesLessons extends ResourceCollection
      */
     public function toArray($request)
     {
-
         $values = $this->collection;
-        $data = $values->unique('unit_code');
-//        $data = $values->map(function ($item){
-//            $result = [
-//                'unitCode' => $item->unit_code,
-//                'classInfo' => [
-//                    'classCode' => $item->lesson_code,
-//                    'className' => $item->lesson_name,
-//                    'classDescription' => $item->lesson_description,
-//                ],
-//            ];
-//            return $item->unit_code;
-//        });
+        //$data = $values->unique('unit_code');
 
-//        $grouped = $data->mapToGroups(function ($item, $key) {
-//            return [$item['unitCode'] => $item['classInfo']];
-//        });
+        $grouped =$values->groupBy(function($item, $key){
 
-        return $data;
+            $data = [
+                'unitCode' => $item['unit_code'],
+            ];
+            return $data;
 
-//        $grouped = $values->mapToGroups(function ($item, $key) {
-//           $result = [
-//               'unitCode' => [
-//                    $item['unit_code'] => $item['unit_name'],
-//                   ],
-//           ];
-//           return $result;
-//        });
-//
-//
-//        return $grouped;
+        })->map(function($item, $key){
 
-//        $grouped =$values->groupBy(function($item){
-//
-//            $data = [
-//                'unitCode' => $item['unit_code'],
-//            ];
-//            return $data;
-//        });
-//
-//        return $grouped;
-//        //return gettype($grouped);
+            $data = [
+                'unitCode' => $key,
+                'data' => $item,
+            ];
+            return $data;
+
+        })->values();
+
+
+        return $grouped;
     }
 
 }

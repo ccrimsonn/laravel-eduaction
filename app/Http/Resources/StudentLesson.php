@@ -22,7 +22,7 @@ class StudentLesson extends JsonResource
             'surname' => $this->surname,
             'campus' => $this->campus,
             'courseCode' => $this->course_code,
-            'unitData' => new UnitIncludesLessons(StudentsCoursesInfo::where('email', $this->email)->where('course_code', $this->course_code)->get()->makeHidden([
+            'unitData' => new UnitIncludesLessons(StudentsCoursesInfo::where('email', $this->email)->where('course_code', $this->course_code)->orderBy('unit_code')->get()->makeHidden([
                 'course_name',
                 'course_code',
                 'cricos_code',
