@@ -17,7 +17,6 @@ class UnitIncludesLessons extends ResourceCollection
     public function toArray($request)
     {
         $values = $this->collection;
-        //$data = $values->unique('unit_code');
 
         $grouped =$values->groupBy(function($item, $key){
 
