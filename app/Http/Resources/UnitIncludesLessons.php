@@ -2,9 +2,7 @@
 
 namespace Empire\Http\Resources;
 
-use Empire\Models\StudentsCoursesInfo;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Http\Resources\Json\JsonResource;
 
 class UnitIncludesLessons extends ResourceCollection
 {
