@@ -13,8 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('loginToken', 'Api\PassportController@login');
+Route::post('register', 'Api\PassportController@register');
+//登陆的用户才能访问的api
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
+    Route::post('details', 'PassportController@getDetails');
 });
 
 Route::group(['namespace' => 'Api'] , function ()
