@@ -5,6 +5,7 @@ namespace Empire\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Empire\Http\Controllers\Controller;
 use Empire\User;
+use Empire\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
@@ -63,6 +64,7 @@ class PassportController extends Controller
     public function getDetails()
     {
         $user = Auth::user();
+        //$article = Article::find(3); //使用$article的数据
         return response()->json(['success' => $user], $this->successStatus);
     }
 }
